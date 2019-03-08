@@ -1,0 +1,15 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: qxmxgateway
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/ #eurekaserver 的地址，默认随机后轮训
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+zuul:
+  add-host-header: true
+
